@@ -6,29 +6,10 @@ This engine template has integrated OpenNLP's GISModel for text classification.
 This engine template utilizes the GIS algorithm from the Apache OpenNLP library to classify text based off of training data. 
 
 
-## Versions
-
-### v0.1.0
-
-- initial version
-
-### Usage
-**Event Data Requirements**
-
-**Input Query**
-* Phrase
-* Category
-
-**Output PredictedResult**
-* Category
-
 **Dataset Format**
 Training Data:
-Your training data should be a single line with a sentence and a category seperated by a tab. *Note that all words should have a single space between them.
-For example,
-```
-Sports	Russell Wilson is a super bowl quarterback	
-```
+Download sample datasets from here 
+http://ana.cachopo.org/datasets-for-single-label-text-categorization
 
 ### 1. Run PredictionIO
 
@@ -36,7 +17,6 @@ If PredictionIO is not installed, install it [here](http://docs.prediction.io/in
 
 Start all components (Event Server, Elaticsearch, and HBase).
 
-Note: If `pio-start-all` is not recognized, upgrade to the latest version of PredictionIO.
 ```
 $ pio-start-all
 ```
@@ -49,15 +29,13 @@ $ pio status
 ### 2. Download the Engine Template
 
 ```
-git clone ....FILL IN LATER....
+git clone https://github.com/amrgit/textclassification.git
 ```
 
 ### 3. Create a new application
 ```
 $ pio app new [YourAppName]
 ```
-
-The console output should include the App Name, **App ID**, and **Access Key**. You will need the App ID and Access Key in future steps. You can view your applications by entering `pio app list`.
 
 ### 4. Import Data to the Event Server
 
@@ -107,4 +85,4 @@ $ pio deploy
 After deploying successfully, you can view the status of your engine at [http://localhost:8000](http://localhost:8000).
 
 ### 6. Using the Engine
-To do a sample query, run `python send_data.py` from the root directory of your engine. Customize the query by modifying the JSON `"sentence" : "Seattle Seahawks"` in `send_data.py`. The engine will return a JSON object containing predicted energy usage.
+To do a sample query, run `python send_data.py` from the root directory of your engine. Customize the query by modifying the JSON `"sentence" : "sample"` in `send_data.py`. The engine will return a JSON object containing predicted energy usage.
